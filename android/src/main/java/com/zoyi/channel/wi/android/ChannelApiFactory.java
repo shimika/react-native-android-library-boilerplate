@@ -1,8 +1,8 @@
 package com.zoyi.channel.wi.android;
 
-import com.zoyi.okhttp3.OkHttpClient;
-import com.zoyi.retrofit2.Retrofit;
-import com.zoyi.retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
+import okhttp3.OkHttpClient;
+import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 
 /**
  * Created by mika on 2018. 9. 18..

@@ -1,8 +1,8 @@
 package com.zoyi.channel.wi.android;
 
-import com.zoyi.okhttp3.RequestBody;
-import com.zoyi.retrofit2.http.*;
-import com.zoyi.rx.Observable;
+import okhttp3.RequestBody;
+import retrofit2.http.*;
+import rx.Observable;
 
 import java.util.Map;
 

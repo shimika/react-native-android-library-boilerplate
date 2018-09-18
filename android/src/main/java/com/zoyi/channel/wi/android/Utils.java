@@ -2,7 +2,7 @@ package com.zoyi.channel.wi.android;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import com.zoyi.okhttp3.RequestBody;
+import okhttp3.RequestBody;
 import org.json.JSONObject;
 
 import java.net.NetworkInterface;
@@ -10,7 +10,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-import static com.zoyi.okhttp3.MediaType.parse;
+import static okhttp3.MediaType.parse;
 
 /**
  * Created by mika on 2018. 9. 18..

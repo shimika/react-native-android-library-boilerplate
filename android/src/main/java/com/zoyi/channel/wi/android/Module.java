@@ -4,9 +4,9 @@ import android.util.Log;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
-import com.zoyi.rx.Subscriber;
-import com.zoyi.rx.android.schedulers.AndroidSchedulers;
-import com.zoyi.rx.schedulers.Schedulers;
+import rx.Subscriber;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 import java.util.HashMap;
 import java.util.Map;
