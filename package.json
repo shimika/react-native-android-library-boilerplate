@@ -1,17 +1,10 @@
 {
-  "name": "react-native-android-library-boilerplate",
+  "name": "channel-io-wi-synergy-sdk",
   "version": "0.0.1",
-  "author": "Christoph Michel http://cmichel.io",
+  "author": "Jihoon Yoon",
   "private": false,
   "license": "Unlicense",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/MrToph/react-native-android-library-boilerplate.git"
-  },
-  "bugs": {
-    "url": "https://github.com/MrToph/react-native-android-library-boilerplate/issues"
-  },
-  "homepage": "https://github.com/MrToph/react-native-android-library-boilerplate",
+  "homepage": "https://channel-io",
   "keywords": [
     "react-native",
     "android",

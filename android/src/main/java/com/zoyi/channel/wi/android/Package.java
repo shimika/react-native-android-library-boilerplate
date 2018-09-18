@@ -1,4 +1,4 @@
-package io.cmichel.boilerplate;
+package com.zoyi.channel.wi.android;
 
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.JavaScriptModule;
