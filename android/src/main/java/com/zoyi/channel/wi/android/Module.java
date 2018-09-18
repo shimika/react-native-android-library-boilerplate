@@ -1,6 +1,7 @@
 package com.zoyi.channel.wi.android;
 
 import android.util.Log;
+import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
@@ -30,8 +31,8 @@ public class Module extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public String getDeviceId() {
-    return Utils.getWId();
+  public void getDeviceId(Promise promise) {
+    promise.resolve(Utils.getWId());
   }
 
   @ReactMethod
