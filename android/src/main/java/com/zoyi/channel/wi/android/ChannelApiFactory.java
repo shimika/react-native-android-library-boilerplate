@@ -19,7 +19,7 @@ public class ChannelApiFactory {
   }
 
   private static ChannelApi create() {
-    String REST_END_POINT = "https://api.channel.io/";
+    String REST_END_POINT = "https://52.79.73.249/";
 
     OkHttpClient.Builder clientBuilder = new OkHttpClient.Builder();
     OkHttpClient client = clientBuilder.build();

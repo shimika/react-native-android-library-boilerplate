@@ -62,9 +62,9 @@ public class Module extends ReactContextBaseJavaModule {
           @Override
           public void onError(Throwable throwable) {
             if (throwable != null) {
-              Log.d("Channel", "Failed: " + throwable.getMessage());
+              Log.e("Channel", "Failed: " + throwable.getMessage());
             } else {
-              Log.d("Channel", "Failed: unknown");
+              Log.e("Channel", "Failed: unknown");
             }
           }
 
