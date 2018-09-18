@@ -7,6 +7,8 @@ import com.facebook.react.bridge.ReactMethod;
 
 public class Module extends ReactContextBaseJavaModule {
 
+  private boolean debug = true;
+
   public Module(ReactApplicationContext reactContext) {
     super(reactContext);
   }
@@ -17,12 +19,12 @@ public class Module extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void boot(String age, String gender) {
-    boot(age, gender, false);
+  public void setDebug(boolean debug) {
+    this.debug = debug;
   }
 
   @ReactMethod
-  public void boot(String age, String gender, boolean debug) {
-    Log.e("Boot", age + " " + gender + " " + debug);
+  public void boot(String age, String gender) {
+    Log.e("Boot", age + " " + gender + " " + debug + " " + Utils.getWId());
   }
 }
