@@ -30,6 +30,11 @@ public class Module extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
+  public String getDeviceId() {
+    return Utils.getWId();
+  }
+
+  @ReactMethod
   public void boot(String pluginKey, String id, String age, String gender) {
     if (pluginKey == null || pluginKey.trim().length() == 0) {
       Log.e("Channel", "Plugin key can not be null or empty");
