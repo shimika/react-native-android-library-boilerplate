@@ -17,27 +17,26 @@ module.exports = {
       }
 
       NativeModules.ChannelIOSynergy.getDeviceId((wId, adId) => {
-        fetch(`https://api.channel.io/app/plugins/${pluginKey}/boot/v2`, {
-          method: 'POST',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            userId,
-            profile,
-            sysProfile: {
-              adId,
-              '$wId': wId,
+        var xhr = new XMLHttpRequest()
+        xhr.open('POST', `https://api.channel.io/app/plugins/${pluginKey}/boot/v2`, true)
+        xhr.setRequestHeader('Accept', 'application/json')
+        xhr.setRequestHeader('Content-type', 'application/json')
+        xhr.onload = function () {
+            // do something to response
+            if (xhr.status === 200) {
+              resolve()
+            } else {
+              reject(xhr.responseText && JSON.parse(xhr.responseText))
             }
-          })
-        })
-        .then(res => {
-          resolve()
-        })
-        .catch((error) => {
-          reject(error)
-        })
+        };
+        xhr.send(JSON.stringify({
+          userId,
+          profile,
+          sysProfile: {
+            adId,
+            '$wId': wId,
+          }
+        }))
       })
     })
   }
