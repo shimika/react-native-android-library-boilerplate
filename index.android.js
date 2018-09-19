@@ -15,7 +15,7 @@ module.exports = {
       return
     }
 
-    NativeModules.ChannelIOSynergy.getDeviceId(deviceId => {
+    NativeModules.ChannelIOSynergy.getDeviceId().then(deviceId => {
       fetch(`https://api.channel.io/app/plugins/${pluginKey}/boot/v2`, {
         method: 'POST',
         headers: {
