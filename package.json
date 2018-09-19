@@ -16,5 +16,8 @@
   },
   "peerDependencies": {
     "react-native": ">=0.38.0"
+  },
+  "dependencies": {
+    "axios": "^0.18.0"
   }
 }

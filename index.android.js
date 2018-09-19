@@ -1,6 +1,7 @@
 'use strict'
 
 import { NativeModules } from 'react-native'
+import axios from 'axios'
 
 // name as defined via ReactContextBaseJavaModule's getName
 
@@ -17,25 +18,25 @@ module.exports = {
       }
 
       NativeModules.ChannelIOSynergy.getDeviceId((wId, adId) => {
-        fetch(`https://api.channel.io/app/plugins/${pluginKey}/boot/v2`, {
-          method: 'POST',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
+        axios.post(
+          `https://api.channel.io/app/plugins/${pluginKey}/boot/v2`,
+          {
             userId,
             profile,
             sysProfile: {
               adId,
               '$wId': wId,
             }
-          })
-        })
-        .then(res => {
+          },
+          {
+            headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json'
+            }
+          }
+        ).then(res => {
           resolve()
-        })
-        .catch((error) => {
+        }).catch((error) => {
           reject(error)
         })
       })
