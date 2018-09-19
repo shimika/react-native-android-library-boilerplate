@@ -14,4 +14,8 @@ public interface ChannelApi {
   @Headers({"Content-Type: application/json"})
   @POST("/app/plugins/{key}/boot/v2")
   Observable<Void> bootV2(@Path("key") String key, @Body RequestBody body);
+
+  @Headers({"Content-Type: application/json"})
+  @POST("/version")
+  Observable<Void> version();
 }

@@ -2,5 +2,5 @@
           package="com.zoyi.channel.wi.android">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    
+
 </manifest>

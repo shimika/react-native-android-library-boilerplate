@@ -36,6 +36,29 @@ public class Module extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
+  public void version() {
+    ChannelApiFactory.getApi().version()
+        .subscribeOn(Schedulers.io())
+        .observeOn(AndroidSchedulers.mainThread())
+        .subscribe(new Subscriber<Void>() {
+          @Override
+          public void onCompleted() {
+
+          }
+
+          @Override
+          public void onError(Throwable e) {
+
+          }
+
+          @Override
+          public void onNext(Void aVoid) {
+
+          }
+        });
+  }
+
+  @ReactMethod
   public void boot(String pluginKey, String id, String age, String gender) {
     if (pluginKey == null || pluginKey.trim().length() == 0) {
       Log.e("Channel", "Plugin key can not be null or empty");
