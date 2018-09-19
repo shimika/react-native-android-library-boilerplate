@@ -2,8 +2,6 @@
 
 import { NativeModules } from 'react-native'
 
-import AAA from 'blahblah'
-import { a } from 'blahblah'
 // name as defined via ReactContextBaseJavaModule's getName
 
 module.exports = {
