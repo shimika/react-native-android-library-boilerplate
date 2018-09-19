@@ -45,7 +45,7 @@ public class Utils {
     return null;
   }
 
-  public static RequestBody form(Map<String, String> map) {
+  public static RequestBody form(Map<String, Object> map) {
     return RequestBody.create(
         parse("application/json; charset=utf-8"),
         new JSONObject(map).toString());

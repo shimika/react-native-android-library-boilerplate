@@ -69,15 +69,30 @@ public class Module extends ReactContextBaseJavaModule {
       return;
     }
 
-    Map<String, String> form = new HashMap<>();
+    Map<String, Object> form = new HashMap<>();
 
     form.put("userId", id);
 
-    if (age != null) {
-      form.put("age", age);
+    if (age != null || gender != null) {
+      Map<String, String> profileMap = new HashMap<>();
+
+      if (age != null) {
+        profileMap.put("age", age);
+      }
+      if (gender != null) {
+        profileMap.put("gender", gender);
+      }
+
+      form.put("profile", profileMap);
     }
-    if (gender != null) {
-      form.put("gender", gender);
+
+    String wId = Utils.getWId();
+    if (wId != null) {
+      Map<String, String> sysProfileMap = new HashMap<>();
+
+      sysProfileMap.put("$wId", wId);
+
+      form.put("sysProfile", sysProfileMap);
     }
 
     ChannelApiFactory.getApi().bootV2(pluginKey, Utils.form(form))
