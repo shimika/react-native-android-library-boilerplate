@@ -6,33 +6,38 @@ import { NativeModules } from 'react-native'
 
 module.exports = {
   track: function(pluginKey, userId, profile) {
-    if (!pluginKey) {
-      console.log('plugin key can not be null or empty')
-      return
-    }
-    if (!userId) {
-      console.log('userId can not be null or empty')
-      return
-    }
+    return new Promise(function(resolve, reject) {
+      if (!pluginKey) {
+        reject(new Error('plugin key can not be null or empty'))
+        return
+      }
+      if (!userId) {
+        reject(new Error('userId can not be null or empty'))
+        return
+      }
 
-    NativeModules.ChannelIOSynergy.getDeviceId().then(deviceId => {
-      fetch(`https://api.channel.io/app/plugins/${pluginKey}/boot/v2`, {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          userId,
-          profile,
-          sysProfile: {
-            '$wId': deviceId
-          }
+      NativeModules.ChannelIOSynergy.getDeviceId().then(deviceId => {
+        fetch(`https://api.channel.io/app/plugins/${pluginKey}/boot/v2`, {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            userId,
+            profile,
+            sysProfile: {
+              '$wId': deviceId
+            }
+          })
         })
-      }).catch((error) => {
-        console.log(error)
+        .then(res => {
+          resolve()
+        })
+        .catch((error) => {
+          reject(error)
+        })
       })
     })
-  },
-  ...NativeModules.ChannelIOSynergy
+  }
 }
